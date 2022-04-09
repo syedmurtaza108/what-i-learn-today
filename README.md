@@ -24,6 +24,17 @@ Contains my daily learning that I want to share with you😃
 
 (2) `dart2js` (**Web**)
 
+# Flutter working
+
+ - Platform exposes OEM (Original Equipment Manufacturer) widgets and service APIs for example camera to build UI and communicate platform services respectively.
+ - In cross platform world, OEM widgets and platform specific APIs can't be used directly because they are coming from different environment. For example, a Kotlin's android app is compiled to work with ART (Android Run Time) ecosystem. So, obviously it can't run on iOS which has no ART. 
+ - React Native uses OEM widgets but solves the aforementioned problem using bridge (an abstraction layer) so that a developer does not need to be concerned about platform.
+ - Flutter uses completely different approach and uses Skia rendering engine to paint the UI so that OEM widgets are not needed anymore.
+ - Minimal Flutter app
+    - Android: **~4.4 MB**
+    - iOS: **~10.9 MB**
+
+
 
  
 
