@@ -2,8 +2,6 @@
 # What I learn today
 Contains my daily learning that I want to share with you😃
 
-# Flutter
-
 # Flutter code compilation
 **Develop**
 
