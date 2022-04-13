@@ -34,7 +34,67 @@ Contains my daily learning that I want to share with you😃
     - Android: **~4.4 MB**
     - iOS: **~10.9 MB**
 
+# Constructors in Dart
+- **Named**
+```dart
+Fraction.zero() : _numerator = 0, _denominator = 1;
+```
+- **Redirecting**
+```dart
+Fraction.oneHalf() : this(1,2);
+```
+- **Factory** 
+	- Returns an object not necessarily a new one
+	- Cases where it is very useful:
+		- To return an instance of subclass
+		- To follow Singleton pattern
+		- To return an instance from cache
 
+- **Const**
+	- When all class variables are final
+	- It can be used as an annotation
+	- ```dart
+	  class Todo{
+		final int title;
+		final int description;
+		const A(this.title, this.description)
+	  }
+	  
+	  @Todo('Chibi', 'Rename class')
+	  class MyClass {
+  	    @Todo('Tuwaise', 'Change fielld type')
+  	    int value;
 
+  	    @Todo('Anyone', 'Change format')
+  	    void printValue() {
+    		print('value: $value');
+  	    }
+
+  	    @Todo('Anyone', 'Remove this')
+  	    MyClass();
+	  }
+	  
+	  void main() {
+  		MyClass myClass = new MyClass();
+  		InstanceMirror im = reflect(myClass);
+  		ClassMirror classMirror = im.type;
+
+  		classMirror.metadata.forEach((metadata) {
+    		   if (metadata.reflectee is Todo) {
+      		      print(metadata.reflectee.name);
+      		      print(metadata.reflectee.description);
+    		   }
+  		});
+
+  		for (var v in classMirror.declarations.values) {
+    		   if (!v.metadata.isEmpty) {
+      		      if (v.metadata.first.reflectee is Todo) {
+        	         print(v.metadata.first.reflectee.name);
+		         print(v.metadata.first.reflectee.description);
+      		      }
+    	           }
+  	        }
+	   }
+ 	  ```
  
 
